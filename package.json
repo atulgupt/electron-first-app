@@ -1,0 +1,27 @@
+{
+  "name": "electron-first-app",
+  "version": "1.0.0",
+  "description": "Basic desktop application using electron.js",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atulgupt/electron-first-app.git"
+  },
+  "keywords": [
+    "Desktop",
+    "Application",
+    "Electron.js",
+    "Nodejs",
+    "Quick",
+    "Start"
+  ],
+  "author": "Atul Gupta (JavaScript Developer)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atulgupt/electron-first-app/issues"
+  },
+  "homepage": "https://github.com/atulgupt/electron-first-app#readme"
+}
