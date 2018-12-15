@@ -4,7 +4,8 @@
   "description": "Basic desktop application using electron.js",
   "main": "main.js",
   "scripts": {
-    "test": "npm start"
+    "test": "npm start",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,13 @@
   "bugs": {
     "url": "https://github.com/atulgupt/electron-first-app/issues"
   },
-  "homepage": "https://github.com/atulgupt/electron-first-app#readme"
+  "homepage": "https://github.com/atulgupt/electron-first-app#readme",
+  "devDependencies": {
+    "electron": "^3.0.11"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "electron-reload": "^1.4.0",
+    "jquery": "^3.3.1"
+  }
 }
