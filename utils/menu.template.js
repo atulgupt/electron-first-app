@@ -1,11 +1,17 @@
 // making the menu and submenu name
 const template = [
     {
+        label: 'Electron',
+        submenu: [
+            { label: 'About' }
+        ]
+    },
+    {
         label: 'File',
         submenu: [
-            { role: 'save' },
-            { role: 'saveas' },
-            { role: 'quit' }
+            { label: 'Create Order' },
+            { label: 'Save' },
+            { label: 'Save As' },
         ]
     },
     {

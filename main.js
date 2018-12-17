@@ -3,11 +3,41 @@ const { url } = require('url');
 const { path } = require('path');
 const template = require('./utils/menu.template');
 
-// Create the main menu template
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow;
+let addOrderWindow;
+
+
+// adding the quit submenu with event of keyboar using accelerator field
+template[0].submenu.push({
+    label: "Quit",
+    accelerator: process.platform === 'darwin' ? 'Command+Q' : 'Ctrl+Q',
+    click() {
+        app.quit()
+    }
+});
+
+//Handle create add window event
+template[1].submenu[0].click = function () {
+    console.log('click event');
+    createAddOrderWindow();
+}
+
+/**
+ * @description creatubg the new order window
+ */
+function createAddOrderWindow() {
+    // Create the browser window.
+    addOrderWindow = new BrowserWindow({ width: 400, height: 400, title: 'Add New Order' });
+
+    // and load the index.html of the app.
+    addOrderWindow.loadFile('./view/addOrder.html');
+}
+
+/**
+ *@description Creating the home window
+ */
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({});
@@ -25,7 +55,6 @@ function createWindow() {
         // when you should delete the corresponding element.
         mainWindow = null
     });
-
 
     //Build menu fron template
     const menu = Menu.buildFromTemplate(template)
