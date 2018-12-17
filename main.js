@@ -29,10 +29,10 @@ template[1].submenu[0].click = function () {
  */
 function createAddOrderWindow() {
     // Create the browser window.
-    addOrderWindow = new BrowserWindow({ width: 400, height: 400, title: 'Add New Order' });
+    addOrderWindow = new BrowserWindow({ width: 400, height: 400, title: 'New Order' });
 
     // and load the index.html of the app.
-    addOrderWindow.loadFile('./view/addOrder.html');
+    addOrderWindow.loadFile('./view/add.order.html');
 }
 
 /**
