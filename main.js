@@ -1,25 +1,35 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron');
+const { url } = require('url');
+const { path } = require('path');
+const template = require('./utils/menu.template');
+
+// Create the main menu template
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
+let mainWindow
 function createWindow() {
     // Create the browser window.
-    win = new BrowserWindow({ width: 800, height: 600 })
+    mainWindow = new BrowserWindow({});
 
     // and load the index.html of the app.
-    win.loadFile('index.html')
+    mainWindow.loadFile('index.html');
 
     // Open the DevTools.
-    win.webContents.openDevTools()
+    mainWindow.webContents.openDevTools();
 
-    // Emitted when the window is closed.
-    win.on('closed', () => {
+    // Emitted when the mainWindowdow is closed.
+    mainWindow.on('closed', () => {
         // Dereference the window object, usually you would store windows
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
-        win = null
-    })
+        mainWindow = null
+    });
+
+
+    //Build menu fron template
+    const menu = Menu.buildFromTemplate(template)
+    Menu.setApplicationMenu(menu)
 }
 
 // This method will be called when Electron has finished
@@ -39,7 +49,7 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (win === null) {
+    if (mainWindow === null) {
         createWindow()
     }
 })
